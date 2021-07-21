@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <title>Document</title>
+</head>
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<body>
+
+
+
+  <div class="container">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a class="link-secondary" href="#">Subscribe</a>
+        </div>
+        <div class="col-4 text-center">
+          <a class="blog-header-logo text-dark" href="#">Large</a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="link-secondary" href="#" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+              viewBox="0 0 24 24">
+              <title>Search</title>
+              <circle cx="10.5" cy="10.5" r="7.5" />
+              <path d="M21 21l-5.2-5.2" />
+            </svg>
+          </a>
+          <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <a class="p-2 link-secondary" href="#" onclick="int()">ARTS</a>
+        <a class="p-2 link-secondary" href="#" onclick="inta()">MOVIES</a>
+        <a class="p-2 link-secondary" href="#" onclick="fnta()">BOOKS</a>
+        <a class="p-2 link-secondary" href="#" onclick="znta()">Science</a>
+        <a class="p-2 link-secondary" href="#"onclick="vnta()">Politics</a>
+        <a class="p-2 link-secondary" href="#" onclick="bnta()">Business</a>
+        <a class="p-2 link-secondary" href="#" onclick="snta()">Sports</a>
+        <a class="p-2 link-secondary" href="#" onclick="ffnta()">Food</a>
+        <a class="p-2 link-secondary" href="#" onclick="tnta()">travel</a>
+        <a class="p-2 link-secondary" href="#" onclick="fasnta()">Fashion</a>
+        <a class="p-2 link-secondary" href="#" onclick="technta()">Technology</a>
+       
+      </nav>
+    </div>
+  </div>
+
+  <main class="container">
+
+
+    <div class="row mb-2" id="data">
+     
+      </div>
+
+
+
+
+      <div class="row mb-2" id="meta">
+        
+      </div>
+
+     
+    </div>
+
+
+
+  
+
+
+
+
+
+
+     
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+  
+  int()
+  var data=''
+ 
+  
+  function int(){
+    var url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   
+   
+    $.get(url,function(data){
+      console.log(data.results)
+      let car=data.length
+      console.log(car);
+
+      Data=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+          <h3 class="mb-0">${data.results[0].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+          <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[0].abstract}</p>
+          <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+    Pata=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+          <h3 class="mb-0">${data.results[1].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+          <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[1].abstract}</p>
+          <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+    
+
+
+
+
+      $("#data").html(Data)
+      $("#meta").html(Pata)
+    
+    
+    })
+  }
+
+
+
+  /////////
+  inta()
+  var data=''
+
+  function inta(){
+    var url="https://api.nytimes.com/svc/topstories/v2/movies.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+    $.get(url,function(data){
+      console.log(data.results)
+
+      Data=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+          <h3 class="mb-0">${data.results[0].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+          <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[0].abstract}</p>
+          <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+    Pata=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+          <h3 class="mb-0">${data.results[1].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+          <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[1].abstract}</p>
+          <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+
+    
+
+
+
+
+      $("#data").html(Data)
+      $("#meta").html(Pata)
+     
+    
+    })
+  }
+
+///////////
+
+
+fnta()
+  var data=''
+
+  function fnta(){
+    var url="https://api.nytimes.com/svc/topstories/v2/books.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+    $.get(url,function(data){
+      console.log(data.results)
+
+      ta=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+          <h3 class="mb-0">${data.results[0].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+          <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[0].abstract}</p>
+          <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+    Pa=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[2].section}</strong>
+          <h3 class="mb-0">${data.results[2].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[2].updated_date}</div>
+          <img src=${data.results[2].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[2].abstract}</p>
+          <a href=${data.results[2].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+
+    
+
+
+
+      $("#data").html(ta)
+      $("#meta").html(Pa)
+     
+    })
+  }
+  /////////
+
+
+  znta()
+ 
+  var data=''
+
+  function znta(){
+    url="https://api.nytimes.com/svc/topstories/v2/science.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+    $.get(url,function(data){
+      console.log(data.results)
+
+      ta=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+          <h3 class="mb-0">${data.results[0].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+          <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[0].abstract}</p>
+          <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+
+    pa=`<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+          <h3 class="mb-0">${data.results[1].title}t</h3>
+          <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+          <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+          <p class="card-text mb-auto">${data.results[1].abstract}</p>
+          <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+        </div>
+        
+      </div>
+    </div>`
+
+
+   
+
+
+
+      $("#data").html(ta)
+      $("#meta").html(pa)
+     
+    
+    })
+  }
+////////
+
+vnta()
+ 
+ var data=''
+
+ function vnta(){
+   url="https://api.nytimes.com/svc/topstories/v2/politics.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+         <h3 class="mb-0">${data.results[0].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+         <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[0].abstract}</p>
+         <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+//////////
+
+bnta()
+ 
+ var data=''
+
+ function bnta(){
+   url="https://api.nytimes.com/svc/topstories/v2/business.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[2].section}</strong>
+         <h3 class="mb-0">${data.results[2].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[2].updated_date}</div>
+         <img src=${data.results[2].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[2].abstract}</p>
+         <a href=${data.results[2].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+ /////////
+ snta()
+ 
+ var data=''
+
+ function snta(){
+   url="https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+         <h3 class="mb-0">${data.results[0].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+         <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[0].abstract}</p>
+         <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+////////
+ffnta()
+ 
+ var data=''
+
+ function ffnta(){
+   url="https://api.nytimes.com/svc/topstories/v2/food.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+         <h3 class="mb-0">${data.results[0].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+         <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[0].abstract}</p>
+         <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+
+
+ tnta()
+ 
+ var data=''
+
+ function tnta(){
+   url="https://api.nytimes.com/svc/topstories/v2/food.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[0].section}</strong>
+         <h3 class="mb-0">${data.results[0].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[0].updated_date}</div>
+         <img src=${data.results[0].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[0].abstract}</p>
+         <a href=${data.results[0].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+
+ fasnta()
+ 
+ var data=''
+
+ function fasnta(){
+   url="https://api.nytimes.com/svc/topstories/v2/fashion.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[2].section}</strong>
+         <h3 class="mb-0">${data.results[2].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[2].updated_date}</div>
+         <img src=${data.results[2].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[2].abstract}</p>
+         <a href=${data.results[2].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[3].section}</strong>
+         <h3 class="mb-0">${data.results[3].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[3].updated_date}</div>
+         <img src=${data.results[3].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[3].abstract}</p>
+         <a href=${data.results[3].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+
+ ///////
+ technta()
+ 
+ var data=''
+
+ function technta(){
+   url="https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=Af4nmxG4i80nskjLthWFfDyW45WINCgB"
+   $.get(url,function(data){
+     console.log(data.results)
+
+     ta=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[1].section}</strong>
+         <h3 class="mb-0">${data.results[1].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[1].updated_date}</div>
+         <img src=${data.results[1].multimedia[1].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[1].abstract}</p>
+         <a href=${data.results[1].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+   pa=`<div class="row mb-2">
+   <div class="col-md-12">
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+       <div class="col p-4 d-flex flex-column position-static">
+         <strong class="d-inline-block mb-2 text-primary">${data.results[3].section}</strong>
+         <h3 class="mb-0">${data.results[3].title}t</h3>
+         <div class="mb-1 text-muted">${data.results[3].updated_date}</div>
+         <img src=${data.results[3].multimedia[0].url} class="img-fluid" alt="Responsive image" width="200" height="250" >
+         <p class="card-text mb-auto">${data.results[3].abstract}</p>
+         <a href=${data.results[3].short_url} class="stretched-link">Continue reading</a>
+       </div>
+       
+     </div>
+   </div>`
+
+
+  
+
+
+
+     $("#data").html(ta)
+     $("#meta").html(pa)
+    
+   
+   })
+ }
+
+</script>
+
+</html>
